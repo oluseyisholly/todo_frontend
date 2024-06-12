@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    font-family: verdana;
+
+    &:not(input) {
+        text-transform: capitalize;
+    }
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff0 50%, #333 50%);
+}
+.container {
+    height: 450px;
+    width: 330px;
+    background:   #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    padding: 10px;
+    overflow-y: auto;
+    
+}
+
+#input, #inputTime, input {
+    height: 50px;
+    width: 100%;
+    outline: auto;
+    border: none;
+    border-radius: 5px;
+    background: #666;
+    color: #fff;
+    padding: 0 10px;
+    margin: 15px 0;
+
+}
+
+#input,#inputTime,input::placeholder {
+    color: #fff;
+}
+
+#inputTime{
+    display: none;
+}
+
+ul li {
+    background: #eee;
+    color: #333;
+    height: 40px;
+    border-radius: 50px;
+    margin: 10px 0;
+    padding: 10px;;
+}
+
+ul .checked{
+    background: lightgreen;
+    
+}
+
+button {
+    outline: none;
+    background: #666;
+    color: #f9efef;
+    padding: 10px;
+    border-radius: 2px;
+    border: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    transition: .2s;
+}
+ 
+li  .add, .remove {
+    cursor: pointer;
+}
+
+li > span:first-child > span{
+    font-size: 14px;
+    font-weight: 300;
+    color: #bbb;
+}
+
+li > span:nth-child(2) {
+    display: flex;
+}

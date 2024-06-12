@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+    <title>register</title>
+</head>
+<body>
+    <div class="container">
+        <label>Sign In</label>
+            <input  type="text" id="email" placeholder="Enter Email"/>
+            <input  type="text" id="password" placeholder="Enter Password"/>
+        <div style="display: flex; justify-content: center;">
+            <button>Sign In</button>
+        </div>
+        <div style="padding-top: 10px; font-size: small;">
+            <p> Don't have an account? <a style="color: blue;" href="../pages/register.html"> sign up here </a></p> 
+         </div>
+        <script  src="../scripts/api.js"></script>
+        <script>
+            var registerObject = {
+                name: '',
+                email: '',
+                password:''
+            }
+
+
+            $('#email').change(function(){
+                let input = $(this).val();
+                registerObject = {...registerObject, email: input}
+            })
+
+            $('#password').change(function(){
+                let input = $(this).val();
+                registerObject = {...registerObject, password: input}
+            })
+
+            $('button').on('click', async function(){
+                console.log(registerObject);
+                const data = {...registerObject};
+                const result = await  post(data, '/auth/signin');
+                if(result?.token){
+                    localStorage.setItem('token', JSON.stringify(result));
+                    window.location.href = './index.html'
+                }
+                
+                console.log(result)
+            })
+
+        </script>
+    </div>
+    
+</body>
+</html>
